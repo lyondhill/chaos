@@ -21,10 +21,11 @@ func Register(pr Procedure) {
 
 // start running procedures in a random order and run until failure
 func Start() error {
+	rand.Seed(time.Now().Unix())
 	for {
 		proc := procedures[rand.Intn(len(procedures))]
 		if proc.Runnable() {
-			fmt.Println("\n\n\nNow running:%s\n\n", proc.Name())
+			fmt.Printf("\n\n\nNow running:%s\n\n", proc.Name())
 
 			err := proc.Run()
 			if err != nil {
