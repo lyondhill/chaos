@@ -3,6 +3,7 @@ package chaos
 import (
 	"fmt"
 	"math/rand"
+	"time"
 )
 
 type Procedure interface {
